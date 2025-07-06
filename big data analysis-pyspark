@@ -1,0 +1,25 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, avg, desc
+
+# Initialize Spark Session
+spark = SparkSession.builder.appName("NYC Taxi Analysis").getOrCreate()
+
+# Load CSV data
+df = spark.read.csv("data/yellow_tripdata_2023-01.csv", header=True, inferSchema=True)
+
+# Print schema
+df.printSchema()
+
+# Describe basic stats
+df.describe().show()
+
+# Top 10 pickup locations by frequency
+df.groupBy("PULocationID").count().orderBy(desc("count")).show(10)
+
+# Average fare amount
+df.select(avg("fare_amount").alias("Average Fare")).show()
+
+# Trips with fare > $50
+df.filter(col("fare_amount") > 50).show(5)
+
+spark.stop()
