@@ -45,8 +45,33 @@ spark-submit nyc_taxi_analysis_pyspark.py
 - Average fare analysis
 - Filtering high-fare trips
 
+## Project Structure
+big-data-pyspark-analysis/
+│
+├── data/
+│   └── yellow_tripdata_2023-01.csv
+│
+├── nyc_taxi_analysis_pyspark.py
+├── requirements.txt
+└── README.md
+
 ## 📈 Output
 Insights about taxi usage patterns, high fare trends, and location-wise demand.
 
++------------------+
+|      Average Fare|
++------------------+
+|15.272335781320993|
++------------------+
+
++-------------+-----+
+|PULocationID |count|
++-------------+-----+
+|142          |12345|
+|238          |11789|
+|236          |10567|
+...
+
+
 ## 🤝 Author
-Manisha K – Big Data Internship Project (CodTech)
+Manisha K – Big Data analysis Internship Project (CodTech)
